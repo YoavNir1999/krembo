@@ -27,7 +27,7 @@ with tab:
             activate_search=st.checkbox('לחצי לחיפוש')
             if activate_search:
                 search = st.text_input('הכניסי שם פרטי')
-                df2=df2[df2['שם פרטי'].str.contains(search)]
+                df2=df2[df2['שם פרטי'].str.contains(search) | ['שם משפחה'].str.contains(search)]
             st.dataframe(df2)
         elif filt == 'אישור הורים תקף':
             df2=df2[df2['תאריך אישור הורים ותקנון'].str.contains('2021', na = False)]
