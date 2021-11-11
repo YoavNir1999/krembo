@@ -41,6 +41,10 @@ with tab:
         if save:
             csv = convert_df(df2)
         st.download_button(label="הורדת קובץ",data=csv,file_name='krembo list.csv',mime='text/csv')
-
+        stats = st.container()
+        with stats:
+            show_stats = st.checkbox('הצג סטטיסטיקה')
+            if show_stats:
+                st.bar_chart(data=df2)
     except:
         pass
