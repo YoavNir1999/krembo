@@ -19,7 +19,7 @@ with tab:
         show1 = st.checkbox('הצגת טבלה מקורית')
         if show1:
             st.dataframe(df)
-        
+            show2 = st.checkbox('stats')
         df2 = df
         filt = st.selectbox('בחירת מסנן',['None','הרשמה שנתית תקפה','אישור הורים תקף'],index=2)
         if filt == 'הרשמה שנתית תקפה':
