@@ -37,14 +37,13 @@ with tab:
                 search = st.text_input('הכניסי שם פרטי או משפחה אבל לא שם מלא')
                 df2=df2[df2['שם פרטי'].str.contains(search) | df2['שם משפחה'].str.contains(search)]
             st.dataframe(df2)
+            show_stats = st.checkbox('הצג סטטיסטיקה')
+            if show_stats:
+                st.bar_chart(df2)
         save = st.checkbox('save?')
         if save:
             csv = convert_df(df2)
         st.download_button(label="הורדת קובץ",data=csv,file_name='krembo list.csv',mime='text/csv')
-        stats = st.container()
-        with stats:
-            show_stats = st.checkbox('הצג סטטיסטיקה')
-            if show_stats:
-                st.bar_chart(data=df2)
+        
     except:
         pass
